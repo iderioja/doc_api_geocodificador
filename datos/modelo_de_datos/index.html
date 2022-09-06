@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto de geocodificación de direcciones, topónimos y POI del Gobierno de La Rioja">
+    <meta name="author" content="Leticia Orden Jiménez">
+    <link rel="canonical" href="https://example.com/datos/modelo_de_datos/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Modelo de datos - Geocodificador La Rioja</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Geocodificador La Rioja</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Modelo de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../fuentes_de_datos/">Fuentes de datos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../api/informacion_general/">Información general</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Métodos</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../api/geocodificacion_directa/">Geocodificación directa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../api/geocodificacion_inversa/">Geocodificación inversa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../api/autocompletar/">Autocompletar</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../api/procesado_por_lotes/">Procesado por lotes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../buscador/">Buscador</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Referencias <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../referencias/abreviaturas/">Abreviaturas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/ciudades_autonomas/">Ciudades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/comunidades_autonomas/">Comunidades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/provincias/">Provincias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/estados_del_dato/">Estados del dato</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/lenguas/">Lenguas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/municipios/">Municipios</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/poblaciones/">Poblaciones</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/proveedores_de_datos/">Proveedores de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/tipos_de_dato/">Tipos de dato</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../..">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../fuentes_de_datos/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#modelo-de-datos">MODELO DE DATOS</a></li>
+            <li class="second-level"><a href="#1-objetivo">1. Objetivo</a></li>
+                
+            <li class="second-level"><a href="#2-introduccion">2. Introducción</a></li>
+                
+            <li class="second-level"><a href="#3-modelo-de-datos">3. Modelo de datos</a></li>
+                
+                <li class="third-level"><a href="#31-identificador">3.1 Identificador</a></li>
+                <li class="third-level"><a href="#32-tipo-de-via">3.2 Tipo de vía</a></li>
+                <li class="third-level"><a href="#33-nombre-de-la-via">3.3 Nombre de la vía</a></li>
+                <li class="third-level"><a href="#34-numero-de-la-finca-portal-o-punto-kilometrico">3.4 Número de la finca, portal o punto kilométrico</a></li>
+                <li class="third-level"><a href="#35-nombre-de-la-localizacion">3.5 Nombre de la localización</a></li>
+                <li class="third-level"><a href="#36-codigo-postal">3.6 Código postal</a></li>
+                <li class="third-level"><a href="#37-unidades-administrativas">3.7 UNIDADES ADMINISTRATIVAS</a></li>
+                <li class="third-level"><a href="#371-comunidadciudad-autonoma">3.7.1 Comunidad/Ciudad Autónoma</a></li>
+                <li class="third-level"><a href="#372-provincia">3.7.2 Provincia</a></li>
+                <li class="third-level"><a href="#373-islacomarca">3.7.3 Isla/Comarca</a></li>
+                <li class="third-level"><a href="#374-municipio">3.7.4. Municipio</a></li>
+                <li class="third-level"><a href="#375-primer-nivel">3.7.5 Primer nivel</a></li>
+                <li class="third-level"><a href="#376-segundo-nivel">3.7.6 Segundo nivel</a></li>
+                <li class="third-level"><a href="#38-codigo-ine-de-tramo">3.8 Código INE de tramo</a></li>
+                <li class="third-level"><a href="#39-lengua">3.9 Lengua</a></li>
+                <li class="third-level"><a href="#310-tipo-de-dato">3.10 Tipo de dato</a></li>
+                <li class="third-level"><a href="#311-estado">3.11 Estado</a></li>
+                <li class="third-level"><a href="#312-proveedor">3.12 Proveedor</a></li>
+                <li class="third-level"><a href="#313-geometria">3.13 GEOMETRÍA</a></li>
+                <li class="third-level"><a href="#3131-latitud">3.13.1 Latitud</a></li>
+                <li class="third-level"><a href="#3132-longitud">3.13.2 Longitud</a></li>
+            <li class="second-level"><a href="#4-formato-del-fichero">4. Formato del fichero</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="modelo-de-datos">MODELO DE DATOS</h2>
+<p><br /></p>
+<p>Se describe a continuacíón el modelo de datos que se ha establecido para la recopilación efectiva de los datos de direcciones, topónimos y puntos de interés (POI) de La Rioja, conforme con el modelo promovido por el <em>Sistema Cartográfico Nacional</em>.</p>
+<p><br /></p>
+<h3 id="1-objetivo">1. Objetivo</h3>
+<p><br /></p>
+<p>Este modelo de datos tiene el objetivo principal de estructurar la información para constituir los datos de referencia del servicio de geocodificación de direcciones de la <em>Comunidad Autónoma de La Rioja</em></p>
+<p><br /></p>
+<h3 id="2-introduccion">2. Introducción</h3>
+<p><br /></p>
+<p>En España la competencia administrativa para definir el nombre oficial del viario y la numeración de las direcciones corresponde a los ayuntamientos.</p>
+<p>Por este motivo se ha definido un procedimiento de recopilación de datos de direcciones muy básico, al alcance de cualquier ayuntamiento independientemente de su tamaño y capacidad técnica o económica, con el fin de incorporar o actualizar sus datos de direcciones en el callejero de referencia.</p>
+<p>El formato de fichero de datos propuesto para la recolección de direcciones es conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>.</p>
+<p>La estructura y tipología de los atributos del modelo de datos está orientada para atender las funcionalidades específicas del servicio de geocodificación.</p>
+<p>Se ha incluido un atributo que codifica el estado del dato, con objeto de diferenciar las direcciones entre: oficiales; normalizadas; históricas y otras, así como otro atributo que permite asignar un nombre propio a una dirección o localización, con objeto de facilitar su descubrimiento cuando no se dispone de un dato preciso de dirección, siendo este aplicable también a la búsqueda de toponimia y puntos de interés.</p>
+<p><br /></p>
+<h3 id="3-modelo-de-datos">3. Modelo de datos</h3>
+<p><br /></p>
+<h4 id="31-identificador">3.1 Identificador</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>ID</code></strong></td>
+<td>Identificador persistente proporcionado por el proveedor de datos para referenciar una dirección (o la ubicación de un lugar) que puede estar descrita en múltiples lenguas, referida en distintas épocas, o atender a diferentes denominaciones…</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Características para asignar el identificador:</p>
+<ul>
+<li>Expresa el identificador único de cada registro de datos tal como es gestionado por el organismo proveedor de la información.</li>
+<li>Todos los registros que hacen referencia a la misma dirección, topónimo o POI, independientemente del momento temporal, como es el caso de las direcciones activas y las obsoletas, deben tener el mismo ID.</li>
+</ul>
+<div class="bs-callout bs-callout-info">
+ <small>
+ <h4><small>Ejemplos: [ID]</small></h4>
+ Ejemplo de tratamiento del identificador <a href="../../datos/modelo_de_datos/#31-identificador">[ID]</a> de una dirección.
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre de la vía</th>
+        <th>Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>P0000330142_26089000201--000098</td>
+        <td>Avenida de Jorge Vigón 22</td>
+        <td>2018</td>
+    </tr>
+    <tr>
+        <td>P0000330142_26089000201--000098</td>
+        <td>Avenida Solidaridad 22</td>
+        <td>2022</td>
+    </tr>
+  </tbody>
+  </table>
+ </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información y para el seguimiento de la evolución histórica (trazabilidad) de una dirección, topónimo o POI.
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="32-tipo-de-via">3.2 Tipo de vía</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>TIPVIA</code></strong></td>
+<td>Expresión de la tipología de vía de referencia o de su abreviatura</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>No es necesario que las organizaciones tengan almacenado en sus bases de datos el <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a>. El campo puede estar vacío.</p>
+<p>Como dominio se utiliza la tipología proporcionada por el <em>INE</em> y la <em>D.G. del Catastro</em>, así como las utilizadas en los proyectos de recopilación de datos de direcciones gestionados por las administraciones públicas de la <em>Comunidad Autónoma de La Rioja</em>.</p>
+<p>Se recomienda utilizar la expresión textual completa para el tipo de vía, siendo posible aplicar las abreviaturas más comunes.</p>
+<p>En los casos en que el tipo de vía se considere parte intrínseca del nombre, se recomienda no rellenar el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> con el fin de no duplicar esta información.</p>
+<p>Tampoco es necesario expresar el tipo de vía en aquellas direcciones identificadas mediante un nombre propio o un código, ni en los casos correspondientes a topónimos o puntos de interés (POI).</p>
+<div class="bs-callout bs-callout-info">
+ <small>
+ <h4><small>Ejemplos: [TIPVIA]</small></h4>
+ Ejemplo de uso del atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via">[TIPVIA]</a>.
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>Tpo de vía (TIPVIA)</th>
+        <th>Nombre de la vía</th>
+        <th>Población</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>(null)</td>
+        <td>Cuesta de la Catedral</td>
+        <td>Calahorra</td>
+    </tr>
+    <tr>
+        <td>Avenida</td>
+        <td>Navarra</td>
+        <td>Ortigosa de Cameros</td>
+    </tr>
+  </tbody>
+ </table>
+ </small>
+</div>
+
+<p><br /></p>
+<h4 id="33-nombre-de-la-via">3.3 Nombre de la vía</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NOMVIA</code></strong></td>
+<td>Nombre o denominación de la calle o vía a la que se adscribe una dirección</td>
+<td>Condicional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Se recomienda utilizar expresiones completas evitando el uso de abreviaturas, si bien pueden tener cabida las abreviaturas más comunes.</p>
+<p>Cuando el tipo de vía se trate o se considere como parte del nombre, no se debe rellenar el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a>.</p>
+<p>En aquellas direcciones identificadas mediante un código o número de registro, o un nombre de localización, el atributo <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via"><code>NOMVIA</code></a> debe figurar en blanco (null).</p>
+<p>Si alguna organización recoge el tipo de vía en un campo aparte, el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> se rellenará. Si la organización no hace esa diferenciación, el tipo de vía deberá venir incluido en el atributo <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via"><code>NOMVIA</code></a> junto con el nombre de la vía y en este caso el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> estará vacío (null).</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+En los casos de direcciones con nombre de vía en los que no consta un número, pero sí el nombre de la casa o de la finca, es necesario rellenar el nombre de la vía dentro del campo <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a>, indicando el nombre de la casa o de la finca en el atributo <i>Nombre de la localización</i> <a href="../../datos/modelo_de_datos/#35-nombre-de-la-localizacion">[NOMLOC]</a>.
+<br />
+El sistema parsea <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a> para identificar el nombre de la vía sin preposiciones ni artículos.
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="34-numero-de-la-finca-portal-o-punto-kilometrico">3.4 Número de la finca, portal o punto kilométrico</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NUMERO</code></strong></td>
+<td>Localizador o identificación del portal; número; punto km asociado a una dirección</td>
+<td>Condicional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Se entiende como <em>número</em> (popularmente así denominado) el localizador que acompaña al nombre de la vía con objeto de identificar una dirección específica dentro de esta.</p>
+<p>Aunque generalmente se expresa mediante caracteres numéricos, se admite el uso de textos compuestos numérico-alfabéticos y fórmulas como <em>bis</em>, <em>tris</em>, <em>complementario</em>, <em>supletorio</em>, <em>km</em>, <em>edificio</em>, etc.</p>
+<p>Las expresiones que complementan o discriminan una numeración como: bis, tris, supletorio, etc. se deben expresar dentro del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico"><code>NUMERO</code></a> a continuación del dato de numeración, incluyendo un espacio de separación entre ambos.</p>
+<p>Se recomienda separar los distintos elementos de este atributo, si los hubiera, mediante espacios en blanco, evitando el uso como separadores de comas, puntos y coma, barras o guiones.</p>
+<div class="bs-callout bs-callout-info">
+ <small>
+ <h4><small>Ejemplos: [NUMERO]</small></h4>
+ Ejemplos de uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">[NUMERO]</a>
+ <ul>
+    <li>Avenida Solidaridad 22 B ([NUMERO] = 22 B)</li>
+    <li>Calle Mayor 15 BIS ([NUMERO] = 15 BIS)</li>
+    <li>Carretera LR-486 km 6 ([NUMERO] = km 6)</li>
+ </ul>
+ </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+En el caso de que un portal haga referencia a dos o más números por dar servicio desde la misma entrada a distintos inmuebles, se recomienda generar un registro distinto para cada una de las opciones numerales. Ejemplo: portal rotulado como «Calle Portales 33-35» por compartir dos inmuebles el mismo acceso, debería generar dos registros:
+<ul>
+    <li>Calle Portales 33</li>
+    <li>Calle Portales 35</li>
+ </ul>
+ </small>
+</div>
+
+<p><br /></p>
+<h4 id="35-nombre-de-la-localizacion">3.5 Nombre de la localización</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NOMLOC</code></strong></td>
+<td>Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimo, POI)</td>
+<td>Opcional/Condicional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Nombre propio por el que se conoce un edificio o instalación.</p>
+<p>La inclusión de esta información complementaria en los registros de direcciones definidos conforme a la fórmula clásica ‘calle-número’, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <em>Edificio Capitol</em>; <em>Complejo Científico Tecnológico</em>; <em>Palacio de los deportes</em>, <em>Estación de autobuses</em>.</p>
+<p>Su uso es obligatorio en los registros cuyo tipo de dato <a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a> es <em>Topónimo</em> o <em>POI</em>.</p>
+<p>En el ámbito rústico, este atributo puede contener el número de registro o matrícula que identifica una dirección, edificio o instalación.</p>
+<p><br /></p>
+<h4 id="36-codigo-postal">3.6 Código postal</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>CODPOSTAL</code></strong></td>
+<td>Código postal asociado a una dirección</td>
+<td>Condicional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td><a href="https://www.correos.es/es/es/herramientas/codigos-postales/detalle">Códigos postales</a> de la Sociedad Estatal Correos y Telégrafos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>No se considera para aquellos registros que hacen referencia a topónimos o puntos de interés.</p>
+<p>No incluir separador de millares.</p>
+<p><br /></p>
+<h4 id="37-unidades-administrativas">3.7 UNIDADES ADMINISTRATIVAS</h4>
+<p><br /></p>
+<p>Los siguientes atributos estructuran por orden de rango las unidades administrativas a las que se asocia una dirección, topónimo o POI.</p>
+<p><br /></p>
+<h4 id="371-comunidadciudad-autonoma">3.7.1 Comunidad/Ciudad Autónoma</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>CA</code></strong></td>
+<td>Nombre de la comunidad o ciudad autónoma</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/comunidades_autonomas">Lista controlada <em>Comunidades autónomas</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Los textos de los nombres de la comunidad o ciudad autónoma deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+En el caso presente el texto a utilizar siempre es «La Rioja».
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="372-provincia">3.7.2 Provincia</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>PROVINCIA</code></strong></td>
+<td>Nombre de la provincia</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/provincias">Lista controlada <em>Provincias</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Los textos de los nombres de provincia deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+En el caso presente el texto a utilizar siempre es «La Rioja».
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="373-islacomarca">3.7.3 Isla/Comarca</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>ISLACOMARC</code></strong></td>
+<td>Nombre de la isla, comarca o agrupación de direcciones supramunicipal</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Nombre de la isla, comarca o agrupación de direcciones supramunicipal.</p>
+<p>El texto del nombre debe expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.</p>
+<p><br /></p>
+<h4 id="374-municipio">3.7.4. Municipio</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>MUNICIPIO</code></strong></td>
+<td>Nombre del municipio</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/municipios">Lista controlada <em>Municipios</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Los textos de los nombres de municipio deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.</p>
+<p><br /></p>
+<h4 id="375-primer-nivel">3.7.5 Primer nivel</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NIVEL1</code></strong></td>
+<td>Agrupación de direcciones de primer nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
+<td>Opcional/Condicional</td>
+<td>0,1</td>
+<td>cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Existen muchas posibilidades de estructurar y jerarquizar una dirección por debajo del nivel del municipio, siendo la casuística muy variada.</p>
+<p>En este modelo se ha establecido la posibilidad de definir hasta dos niveles de jerarquización (<a href="../../datos/modelo_de_datos/#375-primer-nivel"><code>NIVEL1</code></a> y <a href="../../datos/modelo_de_datos/#376-segundo-nivel"><code>NIVEL2</code></a>) de orden inferior al municipio, pudiendo ser estos niveles los que dicta la práctica y la costumbre de cada territorio, no fijándose de antemano una estructura específica.</p>
+<p>Los textos de los nombres de agrupamiento de direcciones de primer nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación, por ejemplo: «El Redal», siendo las formas no recomendadas «Redal, El», «Redal (El)».</p>
+<p>Dado que pueden existir poblaciones pertenecientes a un mismo municipio que tengan nombres de calles coincidentes, es obligado codificar dentro de este atributo la población o núcleo urbano de las direcciones que se encuentren en el ámbito urbano. </p>
+<div class="bs-callout bs-callout-info">
+ <small>
+ <h4><small>Ejemplos: [NIVEL1]</small></h4>
+ Ejemplos de uso del atributo <a href="../../datos/modelo_de_datos/#375-primer-nivel">[NIVEL1]</a>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>NIVEL1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><i>(población/núcleo urbano)</i></td>
+    <tr>
+        <td><i>(distrito)</i></td>
+    </tr>
+    <tr>
+        <td><i>(aldea)</i></td>
+    </tr>
+    <tr>
+        <td><i>(entidad singular)</i></td>
+    </tr>
+    <tr>
+        <td><i>(polígono industrial)</td>
+    </tr>
+  </tbody>
+ </table>
+ </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Para direcciones en el ámbito rústico su uso es opcional.
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="376-segundo-nivel">3.7.6 Segundo nivel</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NIVEL2</code></strong></td>
+<td>Agrupación de direcciones de segundo nivel, de orden inferior al municipio y al [NIVEL1]: <em>entidad colectiva</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Texto libre</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Información de una agrupación de direcciones de orden inferior al primer nivel (<a href="../../datos/modelo_de_datos/#375-primer-nivel"><code>NIVEL1</code></a>), cuando dicha pertenencia participa en la estructura formal de una dirección.</p>
+<p>Los textos de los nombres de agrupamiento de direcciones de segundo nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación.</p>
+<div class="bs-callout bs-callout-info">
+ <small>
+ <h4><small>Ejemplos: NIVEL1 y NIVEL2</small></h4>
+ Ejemplos de uso de los atributos <a href="../../datos/modelo_de_datos/#375-primer-nivel">[NIVEL1]</a> y <a href="../../datos/modelo_de_datos/#376-segundo-nivel">[NIVEL2]</a>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>NIVEL1</th>
+        <th>NIVEL2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><i>(núcleo urbano)</i></td>
+        <td><i>(barrio)</i></td>
+    </tr>
+    <tr>
+        <td><i>(aldea)</i></td>
+        <td><i>(diseminado)</i></td>
+    </tr>
+    <tr>
+        <td><i>(población)</i></td>
+        <td><i>(urbanización)</i></td>
+    </tr>
+    <tr>
+        <td><i></i>(entidad coletiva)</td>
+        <td><i>(polígono industrial)</i></td>
+    </tr>
+  </tbody>
+ </table>
+ </small>
+</div>
+
+<p><br /></p>
+<h4 id="38-codigo-ine-de-tramo">3.8 Código INE de tramo</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>INETRA</code></strong></td>
+<td>Código INE de tramo (16 dígitos)</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td>Código INE de tramo</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Formación del código de tramo de 16 dígitos: 2 dígitos de la provincia, 3 del municipio, 2 de la entidad colectiva, 2 de la entidad singular, 2 de núcleo o diseminado, 5 del tramo, correlativos. No confundir con el código de vial corto de 10 posiciones.</p>
+<p>Recomendación para construir los 5 dígitos del tramo cuando aún no lo ha establecido el INE: definir 5 dígitos de alarma que indique que el código está en espera de que lo defina el INE. Ejemplo para vías en una misma población: X0001, X0002, X0003…</p>
+<p><br /></p>
+<h4 id="39-lengua">3.9 Lengua</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>LENGUA</code></strong></td>
+<td>Lengua utilizada en la expresión de una dirección, topónimo o punto de interés</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/lenguas">Lista controlada lenguas ISO 639-3</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección a un subconjunto de registros en función de la lengua en la que se encuentran expresados.</p>
+<p>La codificación de tres (3) caracteres que se propone, es conforme con la norma <a href="https://iso639-3.sil.org/code_tables/639/data">ISO 639-3</a>.</p>
+<p><small>
+<br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>Código ISO 639-3</th>
+        <th>Lengua</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>ast</td>
+        <td>Asturleonés | Asturiano | Llingua Asturiana | Bable| Leonés</td>
+    </tr>
+    <tr>
+        <td>arg</td>
+        <td>Aragonés | Altoaragonés | Fabla aragonesa</td>
+    </tr>
+    <tr>
+        <td>glg</td>
+        <td>Gallego | Galego</td>
+    </tr>
+    <tr>
+        <td>eus</td>
+        <td>Vasco | Euskera | Vascuence | Lengua vasca</td>
+    </tr>
+    <tr>
+        <td>cat</td>
+        <td>Catalán | Català | Valenciano | Valencià |Catalán-Valenciano-Balear | Català-Valencià-Balear</td>
+    </tr>
+    <tr>
+        <td>spa</td>
+        <td>Español | Castellano</td>
+    </tr>
+    <tr>
+        <td>oci</td>
+        <td>Aranés</td>
+    </tr>
+  </tbody>
+  </table></p>
+<p></small></p>
+<p><br /></p>
+<h4 id="310-tipo-de-dato">3.10 Tipo de dato</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>TIPDATO</code></strong></td>
+<td>Tipología del registro de datos conforme a la naturaleza de la información</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/tipos_de_dato">Lista controlada <em>Tipos de dato</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Recoge la tipología del registro de datos con objeto de su aplicación en el algoritmo de búsqueda:</p>
+<ul>
+<li><em>Dirección</em>: Identificación de la localización fija de una finca o edificación por medio de una composición estructurada de nombres geográficos e identificadores.</li>
+<li><em>Topónimo</em>: Término toponímico o nombre geográfico.</li>
+<li><em>POI</em>: Ubicación geográfica de un punto de interés (POI) que no corresponde a una dirección formal.</li>
+</ul>
+<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función de su tipología.</p>
+<p><br /></p>
+<h4 id="311-estado">3.11 Estado</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>ESTADO</code></strong></td>
+<td>Estatus de una dirección o nombre geográfico</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/estados_del_dato">Lista controlada <em>Estados del dato</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Información que permite determinar qué crédito debe darse a la información con respecto a su oficialidad, grado de normalización y/o su vigencia.</p>
+<ul>
+<li><em>Oficial</em>: Información actualmente en uso, aprobada oficialmente por la administración competente o establecida por la legislación.</li>
+<li><em>Normalizado</em>: Información actualmente en uso, aceptada o recomendada por un órgano que tenga asignada una función asesora o tenga facultad de decisión en materia de direcciones o toponimia.</li>
+<li><em>Histórico</em>: Información actualmente en desuso o sin vigencia administrativa.</li>
+<li><em>Otro</em>: Información actualmente en uso que no tienen ningún estatus oficial, ni ha sido aprobada por ningún órgano.</li>
+</ul>
+<p>Fuente: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:Es:PDF"><em>Reglamento (UE) Nº 1089/2010</em></a>.</p>
+<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función de su estado.</p>
+<p><br /></p>
+<h4 id="312-proveedor">3.12 Proveedor</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>PROVEEDOR</code></strong></td>
+<td>Proveedor de datos de la información del registro, señalando mediante una codificación el organismo o institución que suministra la información</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/proveedores_de_datos">Lista controlada <em>Proveedores de datos</em></a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Como la procedencia de los datos puede ser muy variada, se propone utilizar una lista controlada de códigos de proveedor para hacer referencia al productor/suministrador.</p>
+<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función del organismo productor/suministrador.</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Poder integrar de forma flexible datos de distintas procedencias y formatos en un servicio común de geocodificación de direcciones, ofrece la posibilidad de adaptar la metodología de la recopilación de información a las necesidades y posibilidades de cada productor. De esta manera los datos de direcciones recopilados por la Comunidad Autónoma de La Rioja, una administración local o u organismo público, se podrían actualizar remitiéndolos a un repositorio común (P.ej. <i>Callejero de La Rioja</i>) para su indexación, o bien ser recopilados de forma automática y periódica a partir de un servicio de publicación on line o de un fichero en red.
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="313-geometria">3.13 GEOMETRÍA</h4>
+<p><br /></p>
+<p>Expresión de las coordenadas que definen la ubicación geográfica de un registro de datos, representado mediante un objeto puntual.</p>
+<ul>
+<li>Los datos de latitud y longitud deben estar referidos al Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>.  <blockquote>
+<p>Unidades: Grados<br />
+CRS: <a href="https://epsg.io/4936">ETRS89</a><br />
+Datum: <a href="https://epsg.io/6258-datum">European Terrestrial Reference System 1989 (ETRS89)</a><br />
+Ellipsoid: <a href="https://epsg.io/7019-ellipsoid">GRS 1980</a><br />
+Meridiano de referencia: Meridiano de Greenwich  </p>
+</blockquote>
+</li>
+<li>Usar la notación en grados y decimales de grado hasta la 6ª cifra decimal.  </li>
+<li>Utilizar el carácter punto (.) como separador decimal.  </li>
+<li>NO UTILIZAR el formato en grados sexagesimales como una cadena de valores expresada en grados, minutos y segundos.</li>
+</ul>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=N0045047">UNE-EN ISO 6709:2010 “Representación normalizada de localizaciones geográficas puntuales mediante coordenadas. (ISO 6709:2008, incluyendo Cor 1:2009)"</a> recomienda el uso de grados decimales para el intercambio de datos informáticos de latitud y longitud en formato digital, si bien permite el uso de notaciones sexagesimales para visualizar la latitud y la longitud (grados, minutos y minutos decimales o grados, minutos, segundos y segundos decimales).
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="3131-latitud">3.13.1 Latitud</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>LATITUD</code></strong></td>
+<td>Valor de la <em>latitud</em> de la geometría puntual</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Numérico decimal</td>
+<td>-90.00&lt;=latitud&lt;=+90.00 <sup><a href="#1">(1)</a></sup></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<h4 id="3132-longitud">3.13.2 Longitud</h4>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>LONGITUD</code></strong></td>
+<td>Valor de la <em>longitud</em> de la geometría puntual</td>
+<td>Obligatorio</td>
+<td>1</td>
+<td>Numérico decimal</td>
+<td>-180.00&lt;=longitud&lt;=+180.00 <sup><a href="#1">(1)</a></sup></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<h3 id="4-formato-del-fichero">4. Formato del fichero</h3>
+<p><br /></p>
+<p>El formato de fichero de intercambio debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los campos el carácter <em>punto y coma</em> (;).</p>
+<p>La primera línea del fichero debe contener el nombre de los atributos, separados estos por un carácter punto y coma (;), en el orden definido en el modelo de datos.</p>
+<p>Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero, respetando también el orden de los atributos definidos en el modelo de datos.</p>
+<p>Las coordenadas latitud, longitud, se deben expresan en formato geográfico decimal en el Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>, utilizando el carácter <em>punto</em> (.) como separador decimal.</p>
+<p>Los datos de latitud y longitud deben indicarse con al menos seis (6) cifras decimales de precisión geográfica.</p>
+<p>Codificación de caracteres: <a href="https://es.wikipedia.org/wiki/UTF-8">UTF-8 sin BOM</a>.</p>
+<p><br /></p>
+<hr />
+<p><small></p>
+<div class="text-primary">NOTAS:</div>
+
+<p><sup><a name="1"><a href="../../datos/modelo_de_datos/#3131-latitud/">(1)</a></a></sup> Las longitudes <i>este</i> se expresan mediante valores positivos de 0 a 180 grados, en tanto que las longitudes <i>oeste</i> se indican mediante valores negativos de 0 a -180 grados.<br />
+Las latitudes <i>norte</i> se expresan mediante valores positivos de 0 a 90 grados, en tanto que las latitudes <i>sur</i> se indican mediante valores negativos de 0 a -90 grados.
+</small></p>
+<hr /></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Copyright: <a href='iderioja.larioja.org'>Infraestructura de Datos Espaciales de La Rioja (España)</a></small><br>
+            
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

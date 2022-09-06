@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto de geocodificación de direcciones, topónimos y POI del Gobierno de La Rioja">
+    <meta name="author" content="Leticia Orden Jiménez">
+    <link rel="canonical" href="https://example.com/api/geocodificacion_directa/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Geocodificación directa - Geocodificador La Rioja</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Geocodificador La Rioja</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../datos/modelo_de_datos/">Modelo de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../datos/fuentes_de_datos/">Fuentes de datos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../informacion_general/">Información general</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Métodos</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">Geocodificación directa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../geocodificacion_inversa/">Geocodificación inversa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../autocompletar/">Autocompletar</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../procesado_por_lotes/">Procesado por lotes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../buscador/">Buscador</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Referencias <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../referencias/abreviaturas/">Abreviaturas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/ciudades_autonomas/">Ciudades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/comunidades_autonomas/">Comunidades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/provincias/">Provincias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/estados_del_dato/">Estados del dato</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/lenguas/">Lenguas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/municipios/">Municipios</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/poblaciones/">Poblaciones</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/proveedores_de_datos/">Proveedores de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/tipos_de_dato/">Tipos de dato</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../informacion_general/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../geocodificacion_inversa/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</a></li>
+            <li class="second-level"><a href="#construccion-de-la-consulta">Construcción de la consulta</a></li>
+                
+            <li class="second-level"><a href="#configurar-el-numero-de-resultados">Configurar el número de resultados</a></li>
+                
+            <li class="second-level"><a href="#consulta-en-un-area-determinada">Consulta en un área determinada</a></li>
+                
+                <li class="third-level"><a href="#busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</a></li>
+                <li class="third-level"><a href="#busqueda-en-un-area-circular">Búsqueda en un área circular</a></li>
+                <li class="third-level"><a href="#busqueda-aplicando-jerarquia-administrativa">Búsqueda aplicando jerarquía administrativa</a></li>
+            <li class="second-level"><a href="#priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</a></li>
+                
+                <li class="third-level"><a href="#priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</a></li>
+            <li class="second-level"><a href="#busqueda-combinada-priorizada-dentro-de-un-area">Búsqueda combinada priorizada dentro de un área</a></li>
+                
+            <li class="second-level"><a href="#filtrado-de-la-busqueda">Filtrado de la búsqueda</a></li>
+                
+                <li class="third-level"><a href="#filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</a></li>
+                <li class="third-level"><a href="#filtrado-por-tipo-de-datos">Filtrado por tipo de datos</a></li>
+            <li class="second-level"><a href="#cuadro-de-parametros">Cuadro de parámetros</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</h2>
+<p><br /></p>
+<p>El método de <em>geocodificación directa</em>, es el proceso que es necesario utilizar para la búsqueda y extracción de datos de una dirección, topónimo o POI, junto con las coordenadas geográficas de su ubicación, a partir de sus datos identificativos o de referencia.</p>
+<p>La url (endpoint) a la que dirigir la petición es: <strong><code>https://geocoder.larioja.org/v1/search</code></strong></p>
+<p><br /></p>
+<h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
+<p><br /></p>
+<p>El formato de interrogación a la API se construye a partir de la url de referencia de este método <small>(https://geocoder.larioja.org/v1/search)</small>, seguido del signo <strong><code>?</code></strong> y de la secuencia de parámetros que configuran la pregunta, separados estos por el signo <strong><code>&amp;</code></strong>.</p>
+<p>Si se desea localizar una dirección, topónimo o POI que contenga un texto determinado, que es el caso más común, el parámetro a utilizar es <strong><code>text</code></strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>text</code></strong></td>
+<td>cadena de caracteres</td>
+<td>sí</td>
+<td>ninguno</td>
+<td>Texto de la dirección a buscar</td>
+<td>Calle Mayor 10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>carnicerías</em>», para lo cual se añade a la url del método de búsqueda <code>https://geocoder.larioja.org/v1/search</code>, el signo <code>?</code> y el parámetro <code>text=carnicerías</code>.</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=carnicerías">https://geocoder.larioja.org/v1/search?text=carnicerías</a></p>
+<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato <a href="https://geojson.org/"><em>GeoJSON</em></a> que contiene los resultados de la búsqueda que mejor coinciden con el texto «<em>carnicerías</em>». El fichero con formato <em>GeoJSON</em> puede ser leído en un navegador web<sup> <a href="#1">(1)</a></sup> o en un procesador de textos.</p>
+<p>En este caso, los resultados obtenidos son los siguientes<sup> <a href="#2">(2)</a></sup>:</p>
+<blockquote>
+<p>TRAVESÍA CARNICERÍAS, Ausejo, La Rioja, España (-2.17064,42.34409)<br />
+CALLE CARNICERÍAS, Ausejo, La Rioja, España (-2.17054,42.34465)<br />
+TRAVESÍA CARNICERÍAS, San Millán de la Cogolla, La Rioja, España (-2.861,42.3302)<br />
+CALLE CARNICERÍAS, Cuzcurrita de Río Tirón, La Rioja, España (-2.9651,42.54251)<br />
+CALLE CARNICERÍAS, Cornago, La Rioja, España (-2.09479,42.06481)<br />
+CALLEJÓN CARNICERÍAS, Cornago, La Rioja, España (-2.09421,42.06522)<br />
+CALLE CARNICERÍAS, Ezcaray, La Rioja, España (-3.0157,42.3242)<br />
+CALLE CARNICERÍAS, Lardero, La Rioja, España (-2.46253,42.42814)<br />
+CALLE CARNICERÍAS, Logroño, La Rioja, España (-2.4464,42.46693)<br />
+CALLEJÓN CARNICERÍAS, Azofra, La Rioja, España (-2.8012,42.42344)  </p>
+</blockquote>
+<p><br /></p>
+<h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
+<p><br /></p>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <strong><code>size</code></strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>size</code></strong></td>
+<td>integer</td>
+<td>no</td>
+<td>10</td>
+<td>Número deseado de resultados</td>
+<td>5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Si en el ejemplo anterior se deseara recibir solamente un único resultado, la sintaxis de la consulta debería ser:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=carnicerías&amp;size=1">https://geocoder.larioja.org/v1/search?text=carnicerías&amp;size=1</a></p>
+<p>siendo este el resultado obtenido:</p>
+<blockquote>
+<p>TRAVESÍA CARNICERÍAS, Ausejo, La Rioja, España (-2.17064,42.34409) </p>
+</blockquote>
+<p><br /></p>
+<h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
+<p><br /></p>
+<p>Es posible delimitar la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> que utiliza el geocodificador del <em>Gobierno de La Rioja</em> ofrece tres fórmulas para limitar espacialmente la búsqueda: <em>rectángulo</em>, <em>círculo</em> y <em>país</em>.</p>
+<p><br /></p>
+<h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
+<p><br /></p>
+<p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer previamente las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo<sup> <a href="#3">(3)</a></sup>.</p>
+<p>En este caso los parámetros a utilizar son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>boundary.rect.max_lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor máximo de la latitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.4732824</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.max_lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor máximo de la longitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.3676873</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.min_lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor mínimo de la latitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.4205850</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.min_lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor mínimo de la longitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.4811247</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, para encontrar una dirección que contenga el texto <em>«donantes»</em> en el área rectangular que muestra la imagen, definida por las coordenadas lat_min=42.4205850; lon_min=-2.4811247; lat_max=42.4732824; lon_max=-2.3676873.</p>
+<p><br />
+<img alt="Rectángulo área de Logroño(fuente: propia)" src="../../img/rectangulo_logrono.jpg" title="Rectángulo área de Logroño (fuente: propia)" />
+<br />
+<br /></p>
+<p>La sintaxis a utilizar es:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=donantes&amp;boundary.rect.min_lat=42.4205850&amp;boundary.rect.min_lon=-2.4811247&amp;boundary.rect.max_lat=42.4732824&amp;boundary.rect.max_lon=-2.3676873">https://geocoder.larioja.org/v1/search?text=donantes&amp;boundary.rect.min_lat=42.4205850&amp;boundary.rect.min_lon=-2.4811247&amp;boundary.rect.max_lat=42.4732824&amp;boundary.rect.max_lon=-2.3676873</a></p>
+<p>siendo estos los resultados obtenidos:</p>
+<blockquote>
+<p>CALLE DONANTES DE SANGRE, Logroño, La Rioja, España (-2.43118,42.46302)<br />
+CALLE DONANTES DE SANGRE, Lardero, La Rioja, España (-2.45792,42.42886) <br />
+CALLE DONANTES DE SANGRE, Villamediana de Iregua, La Rioja, España (-2.41669,42.43006)   </p>
+</blockquote>
+<p><br /></p>
+<h4 id="busqueda-en-un-area-circular">Búsqueda en un área circular</h4>
+<p><br /></p>
+<p>En el aquellos casos en los que se desea localizar las direcciones que se encuentran dentro de una distancia a un punto dado, se puede utilizar la búsqueda en un área circular, señalando una coordenada central de referencia y el radio en km del círculo dentro del cual se quiere realizar la búsqueda.</p>
+<p>Los parámetros a utilizar en este caso son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>boundary.circle.lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la latitud del punto central del círculo utilizado en la búsqueda en un área circular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.46456</td>
+</tr>
+<tr>
+<td><strong><code>boundary.circle.lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la longitud del punto central del círculo utilizado en la búsqueda en un área circular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.44660</td>
+</tr>
+<tr>
+<td><strong><code>boundary.circle.radius</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>50</td>
+<td>Valor del radio (kilómetros) utilizado en la búsqueda en un área circular<sup> <a href="#4">(4)</a></sup></td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, para encontrar una dirección que contenga el texto <em>«mayor»</em> en un área circular de 10 km desde Logroño (La Rioja), con coordenadas de referencia (lat,lon) 42.464560,-2.446600.</p>
+<p><br />
+<img alt="Círculo 10 km desde Logroño (fuente: propia)" src="../../img/logrono_circulo_10km.jpg" title="Círculo 10 km desde Logroño (fuente: propia)" />
+<br />
+<br /></p>
+<p>La sintaxis a utilizar es:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.464560&amp;boundary.circle.lon=-2.446600&amp;boundary.circle.radius=10">https://geocoder.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.464560&amp;boundary.circle.lon=-2.446600&amp;boundary.circle.radius=10</a></p>
+<p>Que arroja el siguiente resultado:</p>
+<blockquote>
+<p>CALLE MAYOR, Logroño, La Rioja, España (-2.4426,42.46836)<br />
+CALLE MAYOR, Alberite, La Rioja, España (-2.42766,42.40385)<br />
+CALLE MAYOR, Fuenmayor, La Rioja, España (-2.55909,42.46724)<br />
+CALLE MAYOR ALTA, Fuenmayor, La Rioja, España (-2.5599,42.46709)<br />
+CALLE SANCHO EL MAYOR, Logroño, La Rioja, España (-2.46213,42.45926)</p>
+</blockquote>
+<p><br /></p>
+<h4 id="busqueda-aplicando-jerarquia-administrativa">Búsqueda aplicando jerarquía administrativa</h4>
+<p><br /></p>
+<p>El almacenamiento de información mantiene internamente una estructuración jerárquica entre lugares, aplicando un concepto denominado <em>jerarquía administrativa</em>, en el que cada registro se asocia a un vecindario, ciudad, región, país y otras regiones principales.</p>
+<p>Esta propiedad tiene múltiples aplicaciones entre las que destaca el filtrado de información. El ID global de Pelias (gid) de cualquier registro se puede usar con el filtro <strong><code>boundary.gid</code></strong> para devolver solo registros con un ascendente determinado.</p>
+<p>Si se definen varios tipos de regiones en la misma solicitud, los resultados corresponderán a la intersección de todos los límites. Por lo que si las regiones no se superponen, el resultado de la consulta no contendrá datos.</p>
+<p><br /></p>
+<div class="alert alert-warning" role="alert">
+  Por el momento no se ha implementado el gid en las tablas de regiones, por lo que parámetro boundary.gid no genera resultados específicos.
+</div>
+
+<p><br /></p>
+<h3 id="priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</h3>
+<p><br /></p>
+<p>En algunas ocasiones es conveniente presentar los resultados más cercanos a una ubicación o región en la parte superior de la lista, sin renunciar a otros resultados que se encuentran geográficamente más lejanos.</p>
+<p>La <em>geolocalización directa</em> permite priorizar los resultados dentro de los límites geográficos, incluso alrededor de un punto, dentro de un país o dentro de una región.</p>
+<p><br /></p>
+<h4 id="priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</h4>
+<p><br /></p>
+<p>Aplicando a la búsqueda el parámetro <strong><code>focus.point</code></strong>, los resultados se ordenarán por su proximidad a la coordenada dada.</p>
+<p>Para las mismas condiciones, los resultados más cercanos al punto aparecerán en la parte superior de la relación. Sin embargo, a diferencia de las consultas circunscritas a áreas rectangulares o circulares, este parámetro puede devolver resultados muy distantes de la coordenada de referencia.</p>
+<p>Los parámetros a utilizar para la consulta por proximidad a un punto son:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>focus.point.lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la latitud utilizado en la búsqueda alrededor de un punto<sup> <a href="#4">(4)</a></sup></td>
+<td>42.46456</td>
+</tr>
+<tr>
+<td><strong><code>focus.point.lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la longitud utilizado en la búsqueda alrededor de un punto<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.44660</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Si repetimos la consulta de ejemplo utilizada en la busqueda por círculo, pero en este caso utilizando las coordenadas de Logroño para consultar por proximidad a un punto:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=mayor&amp;focus.point.lat=42.46456&amp;focus.point.lon=-2.44660">https://geocoder.larioja.org/v1/search?text=mayor&amp;focus.point.lat=42.46456&amp;focus.point.lon=-2.44660</a></p>
+<p>Se obtiene el siguiente resultado:</p>
+<blockquote>
+<p>CALLE MAYOR, Logroño, La Rioja, España (-2.4426,42.46836) [distancia: 0.536]<br />
+CALLE MAYOR, Alberite, La Rioja, España (-2.42766,42.40385) [distancia: 6.935]<br />
+PLAZA MAYOR, Navarrete, La Rioja, España (-2.56112,42.42946) [distancia: 10.186]<br />
+CALLE MAYOR, Entrena, La Rioja, España (-2.53035,42.38758) [distancia: 10.991]<br />
+CALLE MAYOR, Murillo de Río Leza, La Rioja, España (-2.32541,42.40358) [distancia: 12.051]<br />
+PLAZA MAYOR, Albelda de Iregua, La Rioja, España (-2.47447,42.35764) [distancia: 12.121]<br />
+CALLE MAYOR, Albelda de Iregua, La Rioja, España (-2.47249,42.35724) [distancia: 12.135]<br />
+CALLE MAYOR, Murillo de Río Leza, La Rioja, España (-2.3244,42.39899) [distancia: 12.413]<br />
+PLAZA MAYOR, Medrano, La Rioja, España (-2.554,42.38268) [distancia: 12.687]<br />
+CALLE MAYOR, Ribafrecha, La Rioja, España (-2.38756,42.35557) [distancia: 13.067]</p>
+</blockquote>
+<p><br /></p>
+<h3 id="busqueda-combinada-priorizada-dentro-de-un-area">Búsqueda combinada priorizada dentro de un área</h3>
+<p><br /></p>
+<p>Es posible combinar en la misma consulta la búsqueda en un área determinada, ordenando al mismo tiempo los resultados por su proximidad a un punto dado.</p>
+<p>En el siguiente ejemplo se prioriza la búsqueda en un área rectangular en las proximidades de Logroño, priorizando la proximidad a su esquina de coordenadas latitud,longitud mínimas:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=42.34408158403525&amp;boundary.rect.min_lon=-2.4866867065429688&amp;boundary.rect.max_lat=42.48222557002593&amp;boundary.rect.max_lon=-2.3727035522460938&amp;focus.point.lat=42.34408158403525&amp;focus.point.lon=-2.4866867065429688">https://geocoder.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=42.34408158403525&amp;boundary.rect.min_lon=-2.4866867065429688&amp;boundary.rect.max_lat=42.48222557002593&amp;boundary.rect.max_lon=-2.3727035522460938&amp;focus.point.lat=42.34408158403525&amp;focus.point.lon=-2.4866867065429688</a></p>
+<p>El resultado obtenido por orden de priorización es:</p>
+<blockquote>
+<p>PLAZA MAYOR, Albelda de Iregua, La Rioja, España (-2.47447,42.35764) [distancia: 1.813]<br />
+CALLE MAYOR, Albelda de Iregua, La Rioja, España (-2.47249,42.35724) [distancia: 1.873]<br />
+CALLE MAYOR, Alberite, La Rioja, España (-2.42766,42.40385) [distancia: 8.236]<br />
+CALLE MAYOR, Ribafrecha, La Rioja, España (-2.38756,42.35557) [distancia: 8.255]<br />
+CALLE MAYOR, Logroño, La Rioja, España (-2.4426,42.46836) [distancia: 14.301]<br />
+CALLE SANCHO EL MAYOR, Logroño, La Rioja, España (-2.46213,42.45926) [distancia: 12.98]  </p>
+</blockquote>
+<p><br /></p>
+<h3 id="filtrado-de-la-busqueda">Filtrado de la búsqueda</h3>
+<p><br /></p>
+<h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
+<p><br /></p>
+<p>El almacén de datos de referencia del geocodificador del <em>Gobierno de La Rioja</em> permite combinar datos procedentes de distintas <a href="../../datos/fuentes_de_datos">fuentes de datos</a><sup> <a href="#5">(5)</a></sup>.</p>
+<p>La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> ofrece la posibilidad de seleccionar, entre todos, el conjunto de datos de referencia al cual dirigir la búsqueda.</p>
+<p>Cuando se realiza una consulta, esta se dirige por defecto al conjunto de todas las direcciones que están almacenadas en la base de datos.</p>
+<p>Utilizando el parámetro <strong><code>sources</code></strong>, es posible definir los conjuntos de datos a los que dirigir la petición.</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>sources</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>todas las fuentes</td>
+<td>Listado de fuentes de datos separados por comas, codificados según <a href="../../referencias/proveedores_de_datos">lista controlada <em>Proveedores de datos</em></a></td>
+<td>calrj, mun26132</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente ejemplo realiza una consulta general a toda la base de datos:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=doctor 10">https://geocoder.larioja.org/v1/search?text=doctor 10</a></p>
+<p>En tanto que el siguiente ejemplo dirige la consulta solamente a los datos aportados por la <em>Comunidad Autónoma de La Rioja</em>:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=doctor 10&amp;sources=calrj">https://geocoder.larioja.org/v1/search?text=doctor 10&amp;sources=calrj</a></p>
+<p><br /></p>
+<h4 id="filtrado-por-tipo-de-datos">Filtrado por tipo de datos</h4>
+<p><br /></p>
+<p>El almacenamiento de datos se realiza en tablas diferentes en función de su naturaleza, lo que permite diferenciar tres tipos de datos: <em>dirección (address)</em> ; <em>calle (street)</em> y <em>lugar (venue)</em>.</p>
+<p>El parámetro <strong><code>layers</code></strong> permite dirigir la petición de información a las siguientes capas, con el fin de obtener el resultado deseado:</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>layer (capa)</th>
+        <th>descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>venue</td>
+        <td>topónimos; puntos de interés; nombres propios de las direcciones</td>
+    </tr>
+    <tr>
+        <td>address</td>
+        <td>puntos con una dirección postal</td>
+    </tr>
+    <tr>
+        <td>street</td>
+        <td>calles; vías; carreteras</td>
+    </tr>
+  </tbody>
+  </table>
+
+<div class="alert alert-warning" role="alert">
+  Cuando en el texto de la búsqueda se indica el texto de la calle pero no un número específico, la API interpreta que se está intentando localizar elementos del tipo «street». Si en estos casos se quiere forzar la respuesta para que devuelva datos de direcciones y no de calles, es imprescindible configurar la pregunta añadiendo el parámetro «layers=address».
+</div>
+
+<p><br />
+El uso del parámetro <strong><code>layers</code></strong> es el siguiente:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>layers</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>todas las capas</td>
+<td>Nombres de las capas de datos a las que se dirije la consulta, separados por comas</td>
+<td>venue, address, street</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente ejemplo realiza la búsqueda del punto de interés <em>Oficina de La Rioja en Bruselas</em>:</p>
+<p><a href="https://geocoder.larioja.org/v1/search?text=Oficina de La Rioja en Bruselas&amp;layers=venue">https://geocoder.larioja.org/v1/search?text=Oficina de La Rioja en Bruselas&amp;layers=venue</a></p>
+<p><br />
+<img alt="Oficina de La Rioja en Bruselas(fuentes: imagen propia, Gobierno de La Rioja)" src="../../img/directa_oficina_bruselas.jpg" title="Oficina de La Rioja en Bruselas(fuentes: imagen propia, Gobierno de La Rioja)" />
+<br />
+<br /></p>
+<h3 id="cuadro-de-parametros">Cuadro de parámetros</h3>
+<p><br /></p>
+<p>Esta es la relación de parámetros que se pueden utilizar en las operaciones de <em>geocodificación directa</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>boundary.circle.lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la latitud del punto central del círculo utilizado en la búsqueda en una región circular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.46456</td>
+</tr>
+<tr>
+<td><strong><code>boundary.circle.lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la longitud del punto central del círculo utilizado en la búsqueda en una región circular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.44660</td>
+</tr>
+<tr>
+<td><strong><code>boundary.circle.radius</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>50</td>
+<td>Valor del radio (kilómetros) utilizado en la búsqueda en una región circular<sup> <a href="#4">(4)</a></sup></td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong><code>boundary.country</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>ninguno</td>
+<td><p class="text-warning">NO IMPLEMENTADO.</p></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>boundary.gid</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>ninguno</td>
+<td><p class="text-warning">NO IMPLEMENTADO.</p></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.max_lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor máximo de la latitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.4732824</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.max_lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor máximo de la longitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.3676873</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.min_lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor mínimo de la latitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>42.4205850</td>
+</tr>
+<tr>
+<td><strong><code>boundary.rect.min_lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor mínimo de la longitud utilizado en la búsqueda en una región rectangular<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.4811247</td>
+</tr>
+<tr>
+<td><strong><code>focus.point.lat</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la latitud utilizado en la búsqueda alrededor de un punto<sup> <a href="#4">(4)</a></sup></td>
+<td>42.46456</td>
+</tr>
+<tr>
+<td><strong><code>focus.point.lon</code></strong></td>
+<td>numérico coma flotante</td>
+<td>no</td>
+<td>ninguno</td>
+<td>Valor de la longitud utilizado en la búsqueda alrededor de un punto<sup> <a href="#4">(4)</a></sup></td>
+<td>-2.44660</td>
+</tr>
+<tr>
+<td><strong><code>layers</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>todas las capas</td>
+<td>Nombres de las capas de datos a las que se dirije la consulta, separados por comas.</td>
+<td>venue, address, street</td>
+</tr>
+<tr>
+<td><strong><code>size</code></strong></td>
+<td>integer</td>
+<td>no</td>
+<td>10</td>
+<td>Número deseado de resultados</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong><code>sources</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>todas las fuentes</td>
+<td>Listado de fuentes de datos separados por comas, codificados según <a href="../../referencias/proveedores_de_datos">lista controlada <em>Proveedores de datos</em></a></td>
+<td>calrj, mun26132</td>
+</tr>
+<tr>
+<td><strong><code>text</code></strong></td>
+<td>cadena de caracteres</td>
+<td>sí</td>
+<td>ninguno</td>
+<td>Texto de la dirección a buscar</td>
+<td>Calle Mayor 10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<hr />
+<p><small></p>
+<div class="text-primary">NOTAS:</div>
+
+<p><sup><a name="1"><a href="../../api/geocodificacion_directa/#construccion-de-la-consulta">(1)</a></a></sup> Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros <em>JSON</em>.<br />
+<sup><a name="2"><a href="../../api/geocodificacion_directa/#construccion-de-la-consulta">(2)</a></a></sup> Aunque las coordenadas geográficas generalmente se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.<br />
+<sup><a name="3"><a href="../../api/geocodificacion_directa/#busqueda-en-un-area-rectangular">(3)</a></a></sup> Puede obtener las coordenadas de un rectángulo geográfico mediante la <a href="https://boundingbox.klokantech.com/">utilidad web de Klokantech</a>.<br />
+<sup><a name="4"><a href="../../api/geocodificacion_directa/#busqueda-en-un-area-rectangular">(4)</a></a></sup> Utilizar la notación punto (.) como signo de separación decimal.<br />
+<sup><a name="5"><a href="../../api/geocodificacion_directa/#filtrado-por-origen-de-los-datos">(5)</a></a></sup> A los datos de direcciones que se encuentran en desuso o sin vigencia administrativa, cuyo atributo ESTADO tiene el valor <I>Histórico</I>, se les añade al código de proveedor el sufijo «-h», con objeto de poder realizar <I>geocodificación directa</I> específica mediante el parámetro <I>sources</I>, y evitar al mismo tiempo interferencias en los procesos de geocodificación inversa.
+</small></p>
+<hr /></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Copyright: <a href='iderioja.larioja.org'>Infraestructura de Datos Espaciales de La Rioja (España)</a></small><br>
+            
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

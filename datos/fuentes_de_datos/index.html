@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto de geocodificación de direcciones, topónimos y POI del Gobierno de La Rioja">
+    <meta name="author" content="Leticia Orden Jiménez">
+    <link rel="canonical" href="https://example.com/datos/fuentes_de_datos/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Fuentes de datos - Geocodificador La Rioja</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Geocodificador La Rioja</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../modelo_de_datos/">Modelo de datos</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Fuentes de datos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../api/informacion_general/">Información general</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Métodos</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../api/geocodificacion_directa/">Geocodificación directa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../api/geocodificacion_inversa/">Geocodificación inversa</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../api/autocompletar/">Autocompletar</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../api/procesado_por_lotes/">Procesado por lotes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../buscador/">Buscador</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Referencias <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../referencias/abreviaturas/">Abreviaturas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/ciudades_autonomas/">Ciudades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/comunidades_autonomas/">Comunidades autónomas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/provincias/">Provincias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/estados_del_dato/">Estados del dato</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/lenguas/">Lenguas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/municipios/">Municipios</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/poblaciones/">Poblaciones</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/proveedores_de_datos/">Proveedores de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/tipos_de_dato/">Tipos de dato</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../modelo_de_datos/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../api/informacion_general/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fuentes-de-datos">FUENTES DE DATOS</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="fuentes-de-datos">FUENTES DE DATOS</h2>
+<p><br /></p>
+<p>Estos son los códigos de los proveedores de los datos que se han cargado en el Servicio de Geocodificación de la <em>Comunidad Autónoma de La Rioja</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Proveedor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calrj</td>
+<td>Comunidad Autónoma de La Rioja</td>
+</tr>
+<tr>
+<td>mun26001</td>
+<td>Ayuntamiento de Ábalos</td>
+</tr>
+<tr>
+<td>mun26002</td>
+<td>Ayuntamiento de Agoncillo</td>
+</tr>
+<tr>
+<td>mun26003</td>
+<td>Ayuntamiento de Aguilar del Río Alhama</td>
+</tr>
+<tr>
+<td>mun26004</td>
+<td>Ayuntamiento de Ajamil de Cameros</td>
+</tr>
+<tr>
+<td>mun26005</td>
+<td>Ayuntamiento de Albelda de Iregua</td>
+</tr>
+<tr>
+<td>mun26006</td>
+<td>Ayuntamiento de Alberite</td>
+</tr>
+<tr>
+<td>mun26007</td>
+<td>Ayuntamiento de Alcanadre</td>
+</tr>
+<tr>
+<td>mun26008</td>
+<td>Ayuntamiento de Aldeanueva de Ebro</td>
+</tr>
+<tr>
+<td>mun26009</td>
+<td>Ayuntamiento de Alesanco</td>
+</tr>
+<tr>
+<td>mun26010</td>
+<td>Ayuntamiento de Alesón</td>
+</tr>
+<tr>
+<td>mun26011</td>
+<td>Ayuntamiento de Alfaro</td>
+</tr>
+<tr>
+<td>mun26012</td>
+<td>Ayuntamiento de Almarza de Cameros</td>
+</tr>
+<tr>
+<td>mun26013</td>
+<td>Ayuntamiento de Anguciana</td>
+</tr>
+<tr>
+<td>mun26014</td>
+<td>Ayuntamiento de Anguiano</td>
+</tr>
+<tr>
+<td>mun26015</td>
+<td>Ayuntamiento de Arenzana de Abajo</td>
+</tr>
+<tr>
+<td>mun26016</td>
+<td>Ayuntamiento de Arenzana de Arriba</td>
+</tr>
+<tr>
+<td>mun26017</td>
+<td>Ayuntamiento de Arnedillo</td>
+</tr>
+<tr>
+<td>mun26018</td>
+<td>Ayuntamiento de Arnedo</td>
+</tr>
+<tr>
+<td>mun26019</td>
+<td>Ayuntamiento de Arrúbal</td>
+</tr>
+<tr>
+<td>mun26020</td>
+<td>Ayuntamiento de Ausejo</td>
+</tr>
+<tr>
+<td>mun26021</td>
+<td>Ayuntamiento de Autol</td>
+</tr>
+<tr>
+<td>mun26022</td>
+<td>Ayuntamiento de Azofra</td>
+</tr>
+<tr>
+<td>mun26023</td>
+<td>Ayuntamiento de Badarán</td>
+</tr>
+<tr>
+<td>mun26024</td>
+<td>Ayuntamiento de Bañares</td>
+</tr>
+<tr>
+<td>mun26025</td>
+<td>Ayuntamiento de Baños de Rioja</td>
+</tr>
+<tr>
+<td>mun26026</td>
+<td>Ayuntamiento de Baños de Río Tobía</td>
+</tr>
+<tr>
+<td>mun26027</td>
+<td>Ayuntamiento de Berceo</td>
+</tr>
+<tr>
+<td>mun26028</td>
+<td>Ayuntamiento de Bergasa</td>
+</tr>
+<tr>
+<td>mun26029</td>
+<td>Ayuntamiento de Bergasillas Bajera</td>
+</tr>
+<tr>
+<td>mun26030</td>
+<td>Ayuntamiento de Bezares</td>
+</tr>
+<tr>
+<td>mun26031</td>
+<td>Ayuntamiento de Bobadilla</td>
+</tr>
+<tr>
+<td>mun26032</td>
+<td>Ayuntamiento de Brieva de Cameros</td>
+</tr>
+<tr>
+<td>mun26033</td>
+<td>Ayuntamiento de Briñas</td>
+</tr>
+<tr>
+<td>mun26034</td>
+<td>Ayuntamiento de Briones</td>
+</tr>
+<tr>
+<td>mun26035</td>
+<td>Ayuntamiento de Cabezón de Cameros</td>
+</tr>
+<tr>
+<td>mun26036</td>
+<td>Ayuntamiento de Calahorra</td>
+</tr>
+<tr>
+<td>mun26037</td>
+<td>Ayuntamiento de Camprovín</td>
+</tr>
+<tr>
+<td>mun26038</td>
+<td>Ayuntamiento de Canales de la Sierra</td>
+</tr>
+<tr>
+<td>mun26039</td>
+<td>Ayuntamiento de Canillas de Río Tuerto</td>
+</tr>
+<tr>
+<td>mun26040</td>
+<td>Ayuntamiento de Cañas</td>
+</tr>
+<tr>
+<td>mun26041</td>
+<td>Ayuntamiento de Cárdenas</td>
+</tr>
+<tr>
+<td>mun26042</td>
+<td>Ayuntamiento de Casalarreina</td>
+</tr>
+<tr>
+<td>mun26043</td>
+<td>Ayuntamiento de Castañares de Rioja</td>
+</tr>
+<tr>
+<td>mun26044</td>
+<td>Ayuntamiento de Castroviejo</td>
+</tr>
+<tr>
+<td>mun26045</td>
+<td>Ayuntamiento de Cellorigo</td>
+</tr>
+<tr>
+<td>mun26046</td>
+<td>Ayuntamiento de Cenicero</td>
+</tr>
+<tr>
+<td>mun26047</td>
+<td>Ayuntamiento de Cervera del Río Alhama</td>
+</tr>
+<tr>
+<td>mun26048</td>
+<td>Ayuntamiento de Cidamón</td>
+</tr>
+<tr>
+<td>mun26049</td>
+<td>Ayuntamiento de Cihuri</td>
+</tr>
+<tr>
+<td>mun26050</td>
+<td>Ayuntamiento de Cirueña</td>
+</tr>
+<tr>
+<td>mun26051</td>
+<td>Ayuntamiento de Clavijo</td>
+</tr>
+<tr>
+<td>mun26052</td>
+<td>Ayuntamiento de Cordovín</td>
+</tr>
+<tr>
+<td>mun26053</td>
+<td>Ayuntamiento de Corera</td>
+</tr>
+<tr>
+<td>mun26054</td>
+<td>Ayuntamiento de Cornago</td>
+</tr>
+<tr>
+<td>mun26055</td>
+<td>Ayuntamiento de Corporales</td>
+</tr>
+<tr>
+<td>mun26056</td>
+<td>Ayuntamiento de Cuzcurrita de Río Tirón</td>
+</tr>
+<tr>
+<td>mun26057</td>
+<td>Ayuntamiento de Daroca de Rioja</td>
+</tr>
+<tr>
+<td>mun26058</td>
+<td>Ayuntamiento de Enciso</td>
+</tr>
+<tr>
+<td>mun26059</td>
+<td>Ayuntamiento de Entrena</td>
+</tr>
+<tr>
+<td>mun26060</td>
+<td>Ayuntamiento de Estollo</td>
+</tr>
+<tr>
+<td>mun26061</td>
+<td>Ayuntamiento de Ezcaray</td>
+</tr>
+<tr>
+<td>mun26062</td>
+<td>Ayuntamiento de Foncea</td>
+</tr>
+<tr>
+<td>mun26063</td>
+<td>Ayuntamiento de Fonzaleche</td>
+</tr>
+<tr>
+<td>mun26064</td>
+<td>Ayuntamiento de Fuenmayor</td>
+</tr>
+<tr>
+<td>mun26065</td>
+<td>Ayuntamiento de Galbárruli</td>
+</tr>
+<tr>
+<td>mun26066</td>
+<td>Ayuntamiento de Galilea</td>
+</tr>
+<tr>
+<td>mun26067</td>
+<td>Ayuntamiento de Gallinero de Cameros</td>
+</tr>
+<tr>
+<td>mun26068</td>
+<td>Ayuntamiento de Gimileo</td>
+</tr>
+<tr>
+<td>mun26069</td>
+<td>Ayuntamiento de Grañón</td>
+</tr>
+<tr>
+<td>mun26070</td>
+<td>Ayuntamiento de Grávalos</td>
+</tr>
+<tr>
+<td>mun26071</td>
+<td>Ayuntamiento de Haro</td>
+</tr>
+<tr>
+<td>mun26072</td>
+<td>Ayuntamiento de Herce</td>
+</tr>
+<tr>
+<td>mun26073</td>
+<td>Ayuntamiento de Herramélluri</td>
+</tr>
+<tr>
+<td>mun26074</td>
+<td>Ayuntamiento de Hervías</td>
+</tr>
+<tr>
+<td>mun26075</td>
+<td>Ayuntamiento de Hormilla</td>
+</tr>
+<tr>
+<td>mun26076</td>
+<td>Ayuntamiento de Hormilleja</td>
+</tr>
+<tr>
+<td>mun26077</td>
+<td>Ayuntamiento de Hornillos de Cameros</td>
+</tr>
+<tr>
+<td>mun26078</td>
+<td>Ayuntamiento de Hornos de Moncalvillo</td>
+</tr>
+<tr>
+<td>mun26079</td>
+<td>Ayuntamiento de Huércanos</td>
+</tr>
+<tr>
+<td>mun26080</td>
+<td>Ayuntamiento de Igea</td>
+</tr>
+<tr>
+<td>mun26081</td>
+<td>Ayuntamiento de Jalón de Cameros</td>
+</tr>
+<tr>
+<td>mun26082</td>
+<td>Ayuntamiento de Laguna de Cameros</td>
+</tr>
+<tr>
+<td>mun26083</td>
+<td>Ayuntamiento de Lagunilla del Jubera</td>
+</tr>
+<tr>
+<td>mun26084</td>
+<td>Ayuntamiento de Lardero</td>
+</tr>
+<tr>
+<td>mun26086</td>
+<td>Ayuntamiento de Ledesma de la Cogolla</td>
+</tr>
+<tr>
+<td>mun26087</td>
+<td>Ayuntamiento de Leiva</td>
+</tr>
+<tr>
+<td>mun26088</td>
+<td>Ayuntamiento de Leza de Río Leza</td>
+</tr>
+<tr>
+<td>mun26089</td>
+<td>Ayuntamiento de Logroño</td>
+</tr>
+<tr>
+<td>mun26091</td>
+<td>Ayuntamiento de Lumbreras de Cameros</td>
+</tr>
+<tr>
+<td>mun26092</td>
+<td>Ayuntamiento de Manjarrés</td>
+</tr>
+<tr>
+<td>mun26093</td>
+<td>Ayuntamiento de Mansilla de la Sierra</td>
+</tr>
+<tr>
+<td>mun26094</td>
+<td>Ayuntamiento de Manzanares de Rioja</td>
+</tr>
+<tr>
+<td>mun26095</td>
+<td>Ayuntamiento de Matute</td>
+</tr>
+<tr>
+<td>mun26096</td>
+<td>Ayuntamiento de Medrano</td>
+</tr>
+<tr>
+<td>mun26098</td>
+<td>Ayuntamiento de Munilla</td>
+</tr>
+<tr>
+<td>mun26099</td>
+<td>Ayuntamiento de Murillo de Río Leza</td>
+</tr>
+<tr>
+<td>mun26100</td>
+<td>Ayuntamiento de Muro de Aguas</td>
+</tr>
+<tr>
+<td>mun26101</td>
+<td>Ayuntamiento de Muro en Cameros</td>
+</tr>
+<tr>
+<td>mun26102</td>
+<td>Ayuntamiento de Nájera</td>
+</tr>
+<tr>
+<td>mun26103</td>
+<td>Ayuntamiento de Nalda</td>
+</tr>
+<tr>
+<td>mun26104</td>
+<td>Ayuntamiento de Navajún</td>
+</tr>
+<tr>
+<td>mun26105</td>
+<td>Ayuntamiento de Navarrete</td>
+</tr>
+<tr>
+<td>mun26106</td>
+<td>Ayuntamiento de Nestares</td>
+</tr>
+<tr>
+<td>mun26107</td>
+<td>Ayuntamiento de Nieva de Cameros</td>
+</tr>
+<tr>
+<td>mun26108</td>
+<td>Ayuntamiento de Ocón</td>
+</tr>
+<tr>
+<td>mun26109</td>
+<td>Ayuntamiento de Ochánduri</td>
+</tr>
+<tr>
+<td>mun26110</td>
+<td>Ayuntamiento de Ojacastro</td>
+</tr>
+<tr>
+<td>mun26111</td>
+<td>Ayuntamiento de Ollauri</td>
+</tr>
+<tr>
+<td>mun26112</td>
+<td>Ayuntamiento de Ortigosa de Cameros</td>
+</tr>
+<tr>
+<td>mun26113</td>
+<td>Ayuntamiento de Pazuengos</td>
+</tr>
+<tr>
+<td>mun26114</td>
+<td>Ayuntamiento de Pedroso</td>
+</tr>
+<tr>
+<td>mun26115</td>
+<td>Ayuntamiento de Pinillos</td>
+</tr>
+<tr>
+<td>mun26117</td>
+<td>Ayuntamiento de Pradejón</td>
+</tr>
+<tr>
+<td>mun26118</td>
+<td>Ayuntamiento de Pradillo</td>
+</tr>
+<tr>
+<td>mun26119</td>
+<td>Ayuntamiento de Préjano</td>
+</tr>
+<tr>
+<td>mun26120</td>
+<td>Ayuntamiento de Quel</td>
+</tr>
+<tr>
+<td>mun26121</td>
+<td>Ayuntamiento de Rabanera</td>
+</tr>
+<tr>
+<td>mun26122</td>
+<td>Ayuntamiento de El Rasillo de Cameros</td>
+</tr>
+<tr>
+<td>mun26123</td>
+<td>Ayuntamiento de El Redal</td>
+</tr>
+<tr>
+<td>mun26124</td>
+<td>Ayuntamiento de Ribafrecha</td>
+</tr>
+<tr>
+<td>mun26125</td>
+<td>Ayuntamiento de Rincón de Soto</td>
+</tr>
+<tr>
+<td>mun26126</td>
+<td>Ayuntamiento de Robres del Castillo</td>
+</tr>
+<tr>
+<td>mun26127</td>
+<td>Ayuntamiento de Rodezno</td>
+</tr>
+<tr>
+<td>mun26128</td>
+<td>Ayuntamiento de Sajazarra</td>
+</tr>
+<tr>
+<td>mun26129</td>
+<td>Ayuntamiento de San Asensio</td>
+</tr>
+<tr>
+<td>mun26130</td>
+<td>Ayuntamiento de San Millán de la Cogolla</td>
+</tr>
+<tr>
+<td>mun26131</td>
+<td>Ayuntamiento de San Millán de Yécora</td>
+</tr>
+<tr>
+<td>mun26132</td>
+<td>Ayuntamiento de San Román de Cameros</td>
+</tr>
+<tr>
+<td>mun26134</td>
+<td>Ayuntamiento de Santa Coloma</td>
+</tr>
+<tr>
+<td>mun26135</td>
+<td>Ayuntamiento de Santa Engracia del Jubera</td>
+</tr>
+<tr>
+<td>mun26136</td>
+<td>Ayuntamiento de Santa Eulalia Bajera</td>
+</tr>
+<tr>
+<td>mun26138</td>
+<td>Ayuntamiento de Santo Domingo de la Calzada</td>
+</tr>
+<tr>
+<td>mun26139</td>
+<td>Ayuntamiento de San Torcuato</td>
+</tr>
+<tr>
+<td>mun26140</td>
+<td>Ayuntamiento de Santurde de Rioja</td>
+</tr>
+<tr>
+<td>mun26141</td>
+<td>Ayuntamiento de Santurdejo</td>
+</tr>
+<tr>
+<td>mun26142</td>
+<td>Ayuntamiento de San Vicente de la Sonsierra</td>
+</tr>
+<tr>
+<td>mun26143</td>
+<td>Ayuntamiento de Sojuela</td>
+</tr>
+<tr>
+<td>mun26144</td>
+<td>Ayuntamiento de Sorzano</td>
+</tr>
+<tr>
+<td>mun26145</td>
+<td>Ayuntamiento de Sotés</td>
+</tr>
+<tr>
+<td>mun26146</td>
+<td>Ayuntamiento de Soto en Cameros</td>
+</tr>
+<tr>
+<td>mun26147</td>
+<td>Ayuntamiento de Terroba</td>
+</tr>
+<tr>
+<td>mun26148</td>
+<td>Ayuntamiento de Tirgo</td>
+</tr>
+<tr>
+<td>mun26149</td>
+<td>Ayuntamiento de Tobía</td>
+</tr>
+<tr>
+<td>mun26150</td>
+<td>Ayuntamiento de Tormantos</td>
+</tr>
+<tr>
+<td>mun26151</td>
+<td>Ayuntamiento de Torrecilla en Cameros</td>
+</tr>
+<tr>
+<td>mun26152</td>
+<td>Ayuntamiento de Torrecilla sobre Alesanco</td>
+</tr>
+<tr>
+<td>mun26153</td>
+<td>Ayuntamiento de Torre en Cameros</td>
+</tr>
+<tr>
+<td>mun26154</td>
+<td>Ayuntamiento de Torremontalbo</td>
+</tr>
+<tr>
+<td>mun26155</td>
+<td>Ayuntamiento de Treviana</td>
+</tr>
+<tr>
+<td>mun26157</td>
+<td>Ayuntamiento de Tricio</td>
+</tr>
+<tr>
+<td>mun26158</td>
+<td>Ayuntamiento de Tudelilla</td>
+</tr>
+<tr>
+<td>mun26160</td>
+<td>Ayuntamiento de Uruñuela</td>
+</tr>
+<tr>
+<td>mun26161</td>
+<td>Ayuntamiento de Valdemadera</td>
+</tr>
+<tr>
+<td>mun26162</td>
+<td>Ayuntamiento de Valgañón</td>
+</tr>
+<tr>
+<td>mun26163</td>
+<td>Ayuntamiento de Ventosa</td>
+</tr>
+<tr>
+<td>mun26164</td>
+<td>Ayuntamiento de Ventrosa</td>
+</tr>
+<tr>
+<td>mun26165</td>
+<td>Ayuntamiento de Viguera</td>
+</tr>
+<tr>
+<td>mun26166</td>
+<td>Ayuntamiento de Villalba de Rioja</td>
+</tr>
+<tr>
+<td>mun26167</td>
+<td>Ayuntamiento de Villalobar de Rioja</td>
+</tr>
+<tr>
+<td>mun26168</td>
+<td>Ayuntamiento de Villamediana de Iregua</td>
+</tr>
+<tr>
+<td>mun26169</td>
+<td>Ayuntamiento de Villanueva de Cameros</td>
+</tr>
+<tr>
+<td>mun26170</td>
+<td>Ayuntamiento de El Villar de Arnedo</td>
+</tr>
+<tr>
+<td>mun26171</td>
+<td>Ayuntamiento de Villar de Torre</td>
+</tr>
+<tr>
+<td>mun26172</td>
+<td>Ayuntamiento de Villarejo</td>
+</tr>
+<tr>
+<td>mun26173</td>
+<td>Ayuntamiento de Villarroya</td>
+</tr>
+<tr>
+<td>mun26174</td>
+<td>Ayuntamiento de Villarta-Quintana</td>
+</tr>
+<tr>
+<td>mun26175</td>
+<td>Ayuntamiento de Villavelayo</td>
+</tr>
+<tr>
+<td>mun26176</td>
+<td>Ayuntamiento de Villaverde de Rioja</td>
+</tr>
+<tr>
+<td>mun26177</td>
+<td>Ayuntamiento de Villoslada de Cameros</td>
+</tr>
+<tr>
+<td>mun26178</td>
+<td>Ayuntamiento de Viniegra de Abajo</td>
+</tr>
+<tr>
+<td>mun26179</td>
+<td>Ayuntamiento de Viniegra de Arriba</td>
+</tr>
+<tr>
+<td>mun26180</td>
+<td>Ayuntamiento de Zarratón</td>
+</tr>
+<tr>
+<td>mun26181</td>
+<td>Ayuntamiento de Zarzosa</td>
+</tr>
+<tr>
+<td>mun26183</td>
+<td>Ayuntamiento de Zorraquín</td>
+</tr>
+<tr>
+<td>mun26802</td>
+<td>Mancomunidad de Nalda, Sorzano y Viguera</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Copyright: <a href='iderioja.larioja.org'>Infraestructura de Datos Espaciales de La Rioja (España)</a></small><br>
+            
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
