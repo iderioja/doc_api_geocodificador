@@ -311,6 +311,8 @@ Un fichero CSV de nombre <strong><em>direcciones-input.csv</em></strong> que con
 Un fichero denominado <strong><em>geocoder_csv.py</em></strong> que contiene el código python del script:</p>
 <pre><code class="language-python">import csv
 import requests
+
+
 def geocoding(name, locality, localadmin, region, macroregion, country):
     url = &quot;https://geocoder-5-ign.larioja.org/v1/search&quot;
     params = dict(
@@ -318,6 +320,7 @@ def geocoding(name, locality, localadmin, region, macroregion, country):
                       region, macroregion, country]),
         size=1
     )
+
     resp = requests.get(url=url, params=params)
     data = resp.json()
     if data['features']:
@@ -327,8 +330,10 @@ def geocoding(name, locality, localadmin, region, macroregion, country):
         print(&quot;fallo: &quot;, params)
         result = [0, 0]
     return result
+
+
 with open('direcciones-input.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
+    csv_reader = csv.reader(csv_file, delimiter=';')
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
@@ -337,7 +342,7 @@ with open('direcciones-input.csv') as csv_file:
                 csv_writer = csv.writer(
                     csv_file, delimiter=';', quotechar='&quot;', quoting=csv.QUOTE_MINIMAL)
                 csv_writer.writerow(
-                    ['_count', 'name', 'locality', 'localadmin', 'region', 'macroregion', 'country', 'lat', 'lon'])
+                    ['_count', 'name', 'locality', 'localadmin', 'region', 'macroregion', 'country', 'lon', 'lat'])
             line_count += 1
         else:
             print(
@@ -348,6 +353,7 @@ with open('direcciones-input.csv') as csv_file:
                     csv_file, delimiter=';', quotechar='&quot;', quoting=csv.QUOTE_MINIMAL)
                 csv_writer.writerow(
                     [row[0], row[1], row[2], row[3], row[4], row[5], row[6], result[0], result[1]])
+
             line_count += 1
     print(f'Processed {line_count} lines.')
 </code></pre>
@@ -395,24 +401,24 @@ Una vez ejecutado el script, este devuelve un fichero CSV denominado <strong><em
 <td>España</td>
 </tr>
 <tr>
-<td>lat</td>
-<td>(Latitud de la dirección)</td>
-</tr>
-<tr>
 <td>lon</td>
 <td>(Longitud de la dirección)</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>(Latitud de la dirección)</td>
 </tr>
 </tbody>
 </table>
 <p>En el ejemplo presente el contenido del fichero <em>direcciones-output.csv</em> es el siguiente:</p>
 <blockquote>
-<p>_count;name;locality;localadmin;region;macroregion;country;lat;lon<br />
-0;Calle Marqués de Murrieta 76;Logroño;Logroño;La Rioja;La Rioja;España;42.46383;-2.46096<br />
-1;Calle General Vara de Rey 3;Logroño;Logroño;La Rioja;La Rioja;España;42.46473;-2.444<br />
-2;Glorieta Quintiliano 1; Calahorra;Calahorra;La Rioja;La Rioja;España;42.30353;-1.96492<br />
-3;Carretera de Alcanadre 2;Los Molinos de Ocón;Ocón;La Rioja;La Rioja;España;42.31334;-2.21067<br />
-4;Carretera Miranda Fonzaleche, 11;Villaseca;Fonzaleche;La Rioja;La Rioja;España;42.59797;-2.97929<br />
-5;Plaza de la Paz, 1;Haro;Haro;La Rioja;La Rioja;España;42.57712;-2.84645  </p>
+<p>_count;name;locality;localadmin;region;macroregion;country;lon;lat
+0;Calle Marqués de Murrieta 76;Logroño;Logroño;La Rioja;La Rioja;España;-2.46096;42.46381
+1;Calle General Vara de Rey 3;Logroño;Logroño;La Rioja;La Rioja;España;-2.44403;42.46473
+2;Glorieta Quintiliano 1;Calahorra;Calahorra;La Rioja;La Rioja;España;-1.96495;42.3037
+3;Carretera de Alcanadre 2;Los Molinos de Ocón;Ocón;La Rioja;La Rioja;España;-2.21067;42.31334
+4;Carretera Miranda Fonzaleche, 11;Villaseca;Fonzaleche;La Rioja;La Rioja;España;-2.97929;42.59797
+5;Plaza de la Paz, 1;Haro;Haro;La Rioja;La Rioja;España;-2.84645;42.57712</p>
 </blockquote>
 <p><br /></p>
 <hr />
