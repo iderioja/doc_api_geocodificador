@@ -174,12 +174,6 @@
                         
                             
 <li >
-    <a href="../../referencias/provincias/">Provincias</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../../referencias/estados_del_dato/">Estados del dato</a>
 </li>
 
@@ -205,6 +199,12 @@
                             
 <li >
     <a href="../../referencias/proveedores_de_datos/">Proveedores de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/provincias/">Provincias</a>
 </li>
 
                         
@@ -451,7 +451,7 @@
 </tr>
 </tbody>
 </table>
-<p>El siguiente ejemplo dirige la consulta a los puntos más próximis a la ubicación conocida como <em>Glorieta del Doctor Zubía</em>, mostrando solamente los datos aportados por la <em>Comunidad Autónoma de La Rioja</em>:</p>
+<p>El siguiente ejemplo dirige la consulta a los puntos más cercanos a la ubicación conocida como <em>Glorieta del Doctor Zubía</em>, mostrando solamente los datos aportados por la <em>Comunidad Autónoma de La Rioja</em>:</p>
 <p><a href="https://geocoder.larioja.org/v1/reverse?point.lat=42.465486&amp;point.lon=-2.442736&amp;SOURCES=calrj">https://geocoder.larioja.org/v1/reverse?point.lat=42.465486&amp;point.lon=-2.442736&amp;SOURCES=calrj</a></p>
 <p>En la siguiente imagen se puede ver mapeado el fichero <em>GeoJSON</em> con los resultados de la petición.</p>
 <p><br />
@@ -460,7 +460,7 @@
 <br /></p>
 <h4 id="filtrado-por-tipo-de-datos">Filtrado por tipo de datos</h4>
 <p><br /></p>
-<p>El geocoder del <em>Gobierno de La Rioja</em> almacena la información puntual de tres tipos de datos: <em>direcciones</em>: <em>dirección (address)</em> ; <em>calle (street)</em> y <em>lugar (venue)</em>.</p>
+<p>El geocoder del <em>Gobierno de La Rioja</em> almacena la información puntual de tres tipos de datos: <em>dirección (address)</em>, <em>calle (street)</em> y <em>lugar (venue)</em>.</p>
 <p>El parámetro <strong><code>layers</code></strong> permite dirigir la petición de información a las siguientes capas, con el fin de obtener el resultado deseado:</p>
 <table class="table table-bordered">
   <thead>
@@ -472,15 +472,15 @@
   <tbody>
     <tr>
         <td>venue</td>
-        <td>topónimos; puntos de interés; nombres propios de las direcciones</td>
+        <td>Topónimos; puntos de interés; nombres propios de las direcciones</td>
     </tr>
     <tr>
         <td>address</td>
-        <td>puntos con una dirección postal</td>
+        <td>Puntos con una dirección postal</td>
     </tr>
     <tr>
         <td>street</td>
-        <td>calles; vías; carreteras</td>
+        <td>Calles; vías; carreteras</td>
     </tr>
   </tbody>
   </table>

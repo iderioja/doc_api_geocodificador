@@ -174,12 +174,6 @@
                         
                             
 <li >
-    <a href="../../referencias/provincias/">Provincias</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../../referencias/estados_del_dato/">Estados del dato</a>
 </li>
 
@@ -205,6 +199,12 @@
                             
 <li >
     <a href="../../referencias/proveedores_de_datos/">Proveedores de datos</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../referencias/provincias/">Provincias</a>
 </li>
 
                         
@@ -282,7 +282,7 @@
 
 <h2 id="modelo-de-datos">MODELO DE DATOS</h2>
 <p><br /></p>
-<p>Se describe a continuacíón el modelo de datos que se ha establecido para la recopilación efectiva de los datos de direcciones, topónimos y puntos de interés (POI) de La Rioja, conforme con el modelo promovido por el <em>Sistema Cartográfico Nacional</em>.</p>
+<p>Se describe a continuacíón el modelo de datos que se ha establecido para la recopilación efectiva de los datos de direcciones, topónimos y puntos de interés (POI) de La Rioja, conforme con el modelo promovido por el <a href="https://www.scne.es/"><em>Sistema Cartográfico Nacional</em></a>.</p>
 <p><br /></p>
 <h3 id="1-objetivo">1. Objetivo</h3>
 <p><br /></p>
@@ -293,7 +293,7 @@
 <p>En España la competencia administrativa para definir el nombre oficial del viario y la numeración de las direcciones corresponde a los ayuntamientos.</p>
 <p>Por este motivo se ha definido un procedimiento de recopilación de datos de direcciones muy básico, al alcance de cualquier ayuntamiento independientemente de su tamaño y capacidad técnica o económica, con el fin de incorporar o actualizar sus datos de direcciones en el callejero de referencia.</p>
 <p>El formato de fichero de datos propuesto para la recolección de direcciones es conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>.</p>
-<p>La estructura y tipología de los atributos del modelo de datos está orientada para atender las funcionalidades específicas del servicio de geocodificación.</p>
+<p>La estructura y tipología de los atributos del modelo de datos está diseñado para atender las funcionalidades específicas del servicio de geocodificación.</p>
 <p>Se ha incluido un atributo que codifica el estado del dato, con objeto de diferenciar las direcciones entre: oficiales; normalizadas; históricas y otras, así como otro atributo que permite asignar un nombre propio a una dirección o localización, con objeto de facilitar su descubrimiento cuando no se dispone de un dato preciso de dirección, siendo este aplicable también a la búsqueda de toponimia y puntos de interés.</p>
 <p><br /></p>
 <h3 id="3-modelo-de-datos">3. Modelo de datos</h3>
@@ -989,32 +989,32 @@ Para direcciones en el ámbito rústico su uso es opcional.
   </thead>
   <tbody>
     <tr>
-        <td>ast</td>
-        <td>Asturleonés | Asturiano | Llingua Asturiana | Bable| Leonés</td>
-    </tr>
     <tr>
         <td>arg</td>
         <td>Aragonés | Altoaragonés | Fabla aragonesa</td>
     </tr>
-    <tr>
-        <td>glg</td>
-        <td>Gallego | Galego</td>
-    </tr>
-    <tr>
-        <td>eus</td>
-        <td>Vasco | Euskera | Vascuence | Lengua vasca</td>
+        <td>ast</td>
+        <td>Asturleonés | Asturiano | Llingua Asturiana | Bable| Leonés</td>
     </tr>
     <tr>
         <td>cat</td>
         <td>Catalán | Català | Valenciano | Valencià |Catalán-Valenciano-Balear | Català-Valencià-Balear</td>
     </tr>
     <tr>
-        <td>spa</td>
-        <td>Español | Castellano</td>
+        <td>eus</td>
+        <td>Vasco | Euskera | Vascuence | Lengua vasca</td>
+    </tr>
+    <tr>
+        <td>glg</td>
+        <td>Gallego | Galego</td>
     </tr>
     <tr>
         <td>oci</td>
         <td>Aranés</td>
+    </tr>
+    <tr>
+        <td>spa</td>
+        <td>Español | Castellano</td>
     </tr>
   </tbody>
   </table></p>
@@ -1056,7 +1056,7 @@ Para direcciones en el ámbito rústico su uso es opcional.
 <ul>
 <li><em>Dirección</em>: Identificación de la localización fija de una finca o edificación por medio de una composición estructurada de nombres geográficos e identificadores.</li>
 <li><em>Topónimo</em>: Término toponímico o nombre geográfico.</li>
-<li><em>POI</em>: Ubicación geográfica de un punto de interés (POI) que no corresponde a una dirección formal.</li>
+<li><em>POI</em>: Ubicación geográfica de un punto de interés (POI).</li>
 </ul>
 <p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función de su tipología.</p>
 <p><br /></p>
