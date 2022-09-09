@@ -260,9 +260,9 @@
 <h2 id="servicio-api-de-geocodificacion-de-direcciones">SERVICIO API DE GEOCODIFICACIÓN DE DIRECCIONES</h2>
 <p><br /></p>
 <p>El Servicio API de geocodificación de direcciones del <em>Gobierno de La Rioja</em>, tiene como objetivo principal buscar y obtener la localización geográfica de cualquier dirección que se encuentre ubicada en el territorio de la <em>Comunidad Autónoma de La Rioja</em> a partir de sus datos identificativos, .</p>
-<p>La URL del servicio es: <strong>https://geocoder.larioja.org/v1/</strong></p>
+<p>La URL del servicio es: <a href="https://geocoder.larioja.org/v1/"><strong>https://geocoder.larioja.org/v1/</strong></a></p>
 <p>Además de la geolocalización de una dirección concreta, este servicio permite obtener los datos de las direcciones cercanas a un punto determinado, así como aquellas que están ubicadas dentro de un área geográfica rectangular o circular determinada.</p>
-<p>El servicio utiliza internamente la <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> <sup><a href="#1">(1)</a></sup> con objeto de ofrecer un conjunto de funciones de consulta flexibles y sofisticadas.</p>
+<p>El servicio utiliza internamente la <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> <sup><a href="#1">(1)</a></sup> con objeto de ofrecer un conjunto de funciones de consulta flexibles y sofisticadas, cuya configuración y tablas de referencia se han adaptado para el caso de La Rioja.</p>
 <p>Los métodos (<em>endpoints</em>) y parámetros que se describen aquí, permiten a cualquier usuario identificar y localizar direcciones con la máxima precisión a partir de los datos completos o parciales que definen una referencia postal, de un identificador o número de registro, o de un nombre representativo de la misma.</p>
 <p>Las búsquedas interrogan al conjunto de direcciones que se encuentran almacenadas en una base de datos <a href="https://www.elastic.co/es/">ElasticSearch (ELS)</a>, siendo el binomio <em>ElasticSearch-API Pelias</em>, junto con distintos procedimientos desarrollados específicamente para este servicio, los elementos que conforman la plataforma tecnológica que provee la funcionalidad.</p>
 <p>Los datos básicos de las direcciones de referencia son recopilados a partir de la información proporcionada por los diferentes ayuntamientos de La Rioja, dentro del marco de cooperación que ofrece la <a href="https://www.iderioja.larioja.org"><em>Infraestructura de Datos Espaciales de La Rioja (IDErioja)</em></a>.</p>
@@ -290,7 +290,6 @@
 <li>Búsqueda de una dirección a partir de su nombre propio.</li>
 <li>Geolocalización de toponimia y nombres geográficos.</li>
 <li>Geolocalización de puntos de interés (POI).</li>
-<li>Localización de los puntos kilométricos de una carretera.</li>
 </ul>
 <p><br /></p>
 <h3 id="la-api-de-direcciones-pelias">La API de direcciones Pelias</h3>
